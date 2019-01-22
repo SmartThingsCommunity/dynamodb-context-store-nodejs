@@ -1,0 +1,25 @@
+{
+  "name": "@smartthings/dynamodb-context-store",
+  "version": "1.0.0",
+  "description": "Stores SmartApp configuration and auth tokens for use in app-initiated calls",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/issues"
+  },
+  "homepage": "https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs#readme",
+  "dependencies": {
+    "aws-sdk": "^2.392.0"
+  },
+  "author": "SmartThings",
+  "contributors": [
+    "Bob Florian"
+  ],
+  "license": "Apache-2.0"
+}
