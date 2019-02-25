@@ -17,7 +17,6 @@ module.exports = class DynamoDBContextStore {
             },
             ConsistentRead: true
         };
-
         return new Promise((resolve, reject) => {
             this.docClient.get(params, function(err, data) {
                 if (err) {
@@ -49,8 +48,6 @@ module.exports = class DynamoDBContextStore {
                 config: JSON.stringify(params.config)
             }
         };
-        console.log(JSON.stringify(data, null, 2));
-
         return new Promise((resolve, reject) => {
             this.docClient.put(data, function(err, data) {
                 if (err) {
@@ -72,7 +69,6 @@ module.exports = class DynamoDBContextStore {
                 ':y': params.refreshToken
             }
         };
-
         return new Promise((resolve, reject) => {
             this.docClient.update(data, function(err, data) {
                 if (err) {
@@ -91,7 +87,6 @@ module.exports = class DynamoDBContextStore {
                 installedAppId: installedAppId
             }
         };
-
         return new Promise((resolve, reject) => {
             this.docClient.delete(params, function(err, data) {
                 if (err) {
