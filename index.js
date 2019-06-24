@@ -24,7 +24,11 @@ module.exports = class DynamoDBContextStore {
                 } else {
                     if (data.Item) {
                         let result = data.Item;
-                        result.config = JSON.parse(result.config);
+
+                        // For backward compatibility with version 1.0.1
+                        if (typeof result.config === 'string') {
+                            result.config = JSON.parse(result.config);
+                        }
                         resolve(result);
                     }
                     else {
@@ -43,9 +47,7 @@ module.exports = class DynamoDBContextStore {
                 locationId: params.locationId,
                 authToken: params.authToken,
                 refreshToken: params.refreshToken,
-                clientId: params.clientId,
-                clientSecret: params.clientSecret,
-                config: JSON.stringify(params.config)
+                config: params.config
             }
         };
         return new Promise((resolve, reject) => {
