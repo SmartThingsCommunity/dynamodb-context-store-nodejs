@@ -1,4 +1,4 @@
-# Javascript DynamoDB Context Store
+# Javascript DynamoDB Context Store 
 
 Used by the [SmartApp SDK](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs) to store IDs and access tokens for an installed instance of a SmartApp
 and retrieves that information for use in asynchronous API calls. The use of a context store
@@ -14,31 +14,114 @@ The context stored by this module consists of the following data elements:
 * **refreshToken**: the refresh token used in generating a new access token when one expires
 * **clientId**: the SmartApp's client ID, used in generating a new access token
 * **clientSecret**: the SmartApp's client secret, used in generating a new access token
-* **config**: the current installed app instance configuration, i.e. selected devices, options, etc.v
+* **config**: the current installed app instance configuration, i.e. selected devices, options, etc.
+
+_Note: Version 2.X.X is a breaking change to version 1.X.X as far as configuring the context store is
+concerned, but either one can be used with any version of the SmartThings SDK._
 
 ## Installation:
 ```
-npm install @smartthings/dynamodb-context-store --save
+npm install @smartthings/dynamodb-context-store
 ```
 
 ## Usage
 
-To use this module to add DynamoDB context storage to your SmartApp you should:
-1. Create a DynamoDB table with `installedAppId` as its primary key
-
-1. Give your Lambda permission to access that table
-
-1. Create a context store instance with the table name and AWS region and pass it to the
-smartapp SDK object. For example, the following code:
-
-```
-const smartapp = require('@smartthings/dynamodb-context-store');
-const DynamoDBContextStore = require('@smartthings/dynamodb-context-store');
-
-smartapp.contextStore(new DynamoDBContextStore('us-east-2', 'app-table-name'))
-    .configureI18n()
-    .page('mainPage', (page) => {
-    ...    
+Create a `DynamoDBContextStore` object and pass it to the SmartApp connector to store the context in a table 
+named `"smartapp"` in the `us-east-1` AWS region. If the table does not exist it will be created.
+```javascript
+smartapp.contextStore(new DynamoDBContextStore())
 ```
 
-will use a table named `app-table-name` in the `us-east-2` region.
+The more extensive set of options are shown in this example:
+```javascript
+smartapp.contextStore(new DynamoDBContextStore(
+    {
+        table: {
+            name: 'custom-table',   // defaults to 'smartapp'
+            hashKey: 'key1',        // defaults to 'id'
+            prefix: 'context',      // defaults to 'ctx'
+            readCapacityUnits: 10,  // defaults to 5, applies to automatic creation only
+            writeCapacityUnits: 10  // defaults to 5, applies to automatic creation only
+        },
+        AWSRegion: 'us-east-2',     // defaults to 'us-east-1'
+        autoCreate: true            // defaults to true
+    }
+))
+```
+
+The **table** configuration options are:
+* **name** -- The name of the DynamoDB table storing the context
+* **hashKey** -- The name of the partition key of the table
+* **prefix** -- A string pre-pended to the installed app ID and used as the partition key for the entry
+* **readCapacityUnits** -- Number of consistent reads per second. Used only when table is created
+* **writeCapacityUnits** -- Number of writes per second. Used only when table is created
+* **sortKey** -- Optional sort key definition (see below for more details)
+
+Other configuration options are:
+* **AWSRegion** -- The AWS region containing the table
+* **AWSConfigPath** -- The location of the AWS configuration JSON file
+* **AWSConfigJSON** -- The AWS credentials and region
+* **autoCreate** -- Controls whether table is created if it doesn't already exist
+
+Note that only one of the AWS options should be specified or behavior will be inconsistent
+
+### AWS Configuration Options
+
+By default, the AWS credentials are picked up from the environment. If you prefer you can read the credentials
+from a file with this configuration:
+```javascript
+smartapp.contextStore(new DynamoDBContextStore(
+    {
+        AWSConfigPath: './path/to/file.json'
+    }
+))
+```
+
+
+You can also explicitly set the credentials in this way:
+```javascript
+smartapp.contextStore(new DynamoDBContextStore(
+    {
+        AWSConfigJSON: {
+            accessKeyId: '<YOUR_ACCESS_KEY_ID>',
+            secretAccessKey: '<YOUR_SECRET_ACCESS_KEY>',
+            region: 'us-east-2'
+        }
+    }
+))
+````
+
+### Sort Key Configuration
+In order to support single table schemas, the context store can be configured to use a table with a sort key.
+The simplest way to do that is by specifying the sort key name:
+```javascript
+smartapp.contextStore(new DynamoDBContextStore(
+    {
+        table: {
+            name: 'my-application',
+            hashKey: 'pk', 
+            sortKey: 'sk'
+        }
+    }
+))
+
+```
+More control over the sort key can be exercised using this form, which is configured with the default values
+used when just the sort key name is specified:
+```javascript
+smartapp.contextStore(new DynamoDBContextStore(
+    {
+        table: {
+            name: 'my-application',
+            hashKey: 'pk', 
+            sortKey: {
+                AttributeName: 'sk',
+                AttributeType: 'S',
+                AttributeValue: 'context',
+                KeyType: 'RANGE'
+            }
+        }
+    }
+))
+
+```
