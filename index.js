@@ -45,8 +45,6 @@ module.exports = class DynamoDBContextStore {
             Item: {
                 installedAppId: params.installedAppId,
                 locationId: params.locationId,
-                authToken: params.authToken,
-                refreshToken: params.refreshToken,
                 config: params.config
             }
         };
