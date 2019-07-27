@@ -12,8 +12,6 @@ The context stored by this module consists of the following data elements:
 * **locationId**: the UUID of the location in which the app is installed
 * **authToken**: the access token used in calling the API
 * **refreshToken**: the refresh token used in generating a new access token when one expires
-* **clientId**: the SmartApp's client ID, used in generating a new access token
-* **clientSecret**: the SmartApp's client secret, used in generating a new access token
 * **config**: the current installed app instance configuration, i.e. selected devices, options, etc.
 
 _Note: Version 2.X.X is a breaking change to version 1.X.X as far as configuring the context store is
