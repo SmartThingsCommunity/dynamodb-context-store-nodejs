@@ -1,6 +1,12 @@
 # Javascript DynamoDB Context Store
 
-[![CircleCI](https://circleci.com/gh/SmartThingsCommunity/dynamodb-context-store-nodejs/tree/master.svg?style=svg)](https://circleci.com/gh/SmartThingsCommunity/dynamodb-context-store-nodejs/tree/master)
+<p align="center">
+<a href="https://circleci.com/gh/SmartThingsCommunity/dynamodb-context-store-nodejs/tree/master"><img src="https://circleci.com/gh/SmartThingsCommunity/dynamodb-context-store-nodejs.svg?style=svg"/></a>
+<a href="https://www.npmjs.com/package/@smartthings/dynamodb-context-store"><img src="https://badgen.net/npm/v/@smartthings/dynamodb-context-store"/></a>
+<a href="https://www.npmjs.com/package/@smartthings/dynamodb-context-store"><img src="https://badgen.net/npm/license/@smartthings/dynamodb-context-store"/></a>
+<a href="https://codecov.io/gh/SmartThingsCommunity/dynamodb-context-store-nodejs"><img src="https://codecov.io/gh/SmartThingsCommunity/dynamodb-context-store-nodejs/branch/master/graph/badge.svg"/></a>
+<a href="https://status.badgen.net/"><img src="https://badgen.net/xo/status/@smartthings/dynamodb-context-store"/></a>
+</p>
 
 Used by the [SmartApp SDK](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs) to store IDs and access tokens for an installed instance of a SmartApp and retrieves that information for use in asynchronous API calls. The use of a context store is only needed when SmartApps have to call the SmartThings API in response to external events. SmartApps that only response to lifecycle events from the SmartThings platform will automatically have the proper context without the app having to store it.
 
