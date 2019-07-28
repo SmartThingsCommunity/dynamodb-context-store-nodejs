@@ -38,7 +38,7 @@ jobs:
       - run: npm test
       - codecov/upload:
           conf: ./config/codecov.yml
-          file: ./.nyc_output/*.json
+          file: ./coverage
       - *persist_to_workspace
   publish:
     executor: arwen

@@ -15,7 +15,7 @@
   "scripts": {
     "lint": "xo",
     "test:unit": "mocha test/unit",
-    "test": "xo && nyc mocha test/**/*",
+    "test": "xo && nyc --reporter=lcov --reporter=text mocha test/**/*",
     "semantic-release": "semantic-release -e ./config/release.config.js"
   },
   "license": "Apache-2.0",
