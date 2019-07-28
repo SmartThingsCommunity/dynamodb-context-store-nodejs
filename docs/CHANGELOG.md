@@ -1,3 +1,12 @@
+## [2.0.1](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/compare/v2.0.0...v2.0.1) (2019-07-28)
+
+
+### Bug Fixes
+
+* badges ([#8](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/issues/8)) ([99b2416](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/commit/99b2416))
+* formatting, documentation, add ci, tests ([#6](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/issues/6)) ([281af90](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/commit/281af90))
+* missing packages, remove snyk ([#7](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/issues/7)) ([cc5a075](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/commit/cc5a075))
+
 # 1.0.0 (2019-07-28)
 
 
