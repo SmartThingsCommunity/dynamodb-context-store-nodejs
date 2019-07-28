@@ -15,7 +15,8 @@
   "scripts": {
     "lint": "xo",
     "test:unit": "mocha test/unit",
-    "test": "xo && nyc --reporter=lcov --reporter=text mocha test/**/*",
+    "test": "xo && nyc --reporter=text mocha test/**/*",
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "semantic-release": "semantic-release -e ./config/release.config.js"
   },
   "license": "Apache-2.0",
@@ -33,6 +34,7 @@
     "@semantic-release/git": "~7.0.16",
     "@semantic-release/release-notes-generator": "~7.2.1",
     "chai": "~4.2.0",
+    "codecov": "3.5.0",
     "conventional-changelog-eslint": "~3.0.1",
     "mocha": "~6.2.0",
     "nyc": "~14.1.1",

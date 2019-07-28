@@ -1,8 +1,5 @@
 version: 2.1
 
-orbs:
-  codecov: codecov/codecov@1.0.5
-
 references:
   attach_workspace: &attach_workspace
     attach_workspace:
@@ -35,10 +32,8 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: npm test
-      - codecov/upload:
-          conf: ./config/codecov.yml
-          file: ./coverage
+      - run: npm run test
+      - run: npm run report-coverage
       - *persist_to_workspace
   publish:
     executor: arwen
