@@ -37,7 +37,8 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm test
       - codecov/upload:
-          file: .nyc_output/*.json
+          conf: ./config/codecov.yml
+          file: ./.nyc_output/*.json
       - *persist_to_workspace
   publish:
     executor: arwen
