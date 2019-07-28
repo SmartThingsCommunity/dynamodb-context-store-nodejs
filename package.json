@@ -2,14 +2,26 @@
   "name": "@smartthings/dynamodb-context-store",
   "version": "2.0.0",
   "description": "Stores SmartApp configuration and auth tokens for use in app-initiated calls",
+  "displayName": "SmartThings SmartApp DynamoDB Context Store",
   "main": "index.js",
+  "author": "SmartThings",
+  "contributors": [
+    "Bob Florian"
+  ],
+  "keywords": [
+    "smartthings",
+    "smartapp"
+  ],
   "scripts": {
-    "test": "mocha test/**/*.js"
+    "lint": "xo",
+    "test:unit": "mocha test/unit",
+    "test": "xo && nyc mocha test/**/*",
+    "semantic-release": "semantic-release -e ./config/release.config.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs.git"
-  },
+  "license": "Apache-2.0",
+  "repository": "github.com:SmartThingsCommunity/dynamodb-context-store-nodejs.git",
   "bugs": {
     "url": "https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/issues"
   },
@@ -17,9 +29,52 @@
   "dependencies": {
     "aws-sdk": "^2.392.0"
   },
-  "author": "SmartThings",
-  "contributors": [
-    "Bob Florian"
-  ],
-  "license": "Apache-2.0"
+  "devDependencies": {
+    "@semantic-release/changelog": "~3.0.4",
+    "@semantic-release/commit-analyzer": "~6.2.0",
+    "@semantic-release/git": "~7.0.16",
+    "@semantic-release/release-notes-generator": "~7.2.1",
+    "xo": "~0.24.0",
+    "nyc": "~14.1.1",
+    "mocha": "~6.2.0",
+    "sinon": "~7.3.2",
+    "conventional-changelog-eslint": "~3.0.1",
+    "chai": "~4.2.0",
+    "snyk": "1.186.0"
+  },
+  "nyc": {
+    "watermarks": {
+      "lines": [
+        40,
+        95
+      ],
+      "functions": [
+        40,
+        95
+      ],
+      "branches": [
+        40,
+        95
+      ],
+      "statements": [
+        40,
+        95
+      ]
+    }
+  },
+  "xo": {
+    "space": false,
+    "semicolon": false,
+    "rules": {
+      "no-useless-constructor": 1,
+      "promise/prefer-await-to-then": 1,
+      "prefer-object-spread": 1,
+      "no-template-curly-in-string": 0,
+      "quote-props": [
+        "error",
+        "consistent"
+      ]
+    }
+  },
+  "snyk": true
 }
