@@ -1,3 +1,3 @@
-'use strict';
+'use strict'
 
-module.exports = require('./lib/DynamoDBContextStore')
+module.exports = require('./lib/dynamodb-context-store')
