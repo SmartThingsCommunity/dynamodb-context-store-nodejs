@@ -1,6 +1,6 @@
 {
   "name": "@smartthings/dynamodb-context-store",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Stores SmartApp configuration and auth tokens for use in app-initiated calls",
   "displayName": "SmartThings SmartApp DynamoDB Context Store",
   "main": "index.js",
