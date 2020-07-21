@@ -34,7 +34,7 @@
     "@semantic-release/git": "~7.0.16",
     "@semantic-release/release-notes-generator": "~7.2.1",
     "chai": "~4.2.0",
-    "codecov": "3.5.0",
+    "codecov": "3.7.1",
     "conventional-changelog-eslint": "~3.0.1",
     "mocha": "~6.2.0",
     "nyc": "~14.1.1",
