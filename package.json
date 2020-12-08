@@ -39,7 +39,7 @@
     "mocha": "~6.2.0",
     "nyc": "~14.1.1",
     "semantic-git-commit-cli": "~3.2.2",
-    "semantic-release": "^15.13.19",
+    "semantic-release": "^17.2.3",
     "sinon": "~7.3.2",
     "xo": "~0.24.0"
   },
