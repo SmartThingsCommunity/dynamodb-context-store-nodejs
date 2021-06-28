@@ -1,3 +1,12 @@
+## [2.1.1](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/compare/v2.1.0...v2.1.1) (2021-06-28)
+
+
+### Bug Fixes
+
+* Bumped version prior to deploy ([#33](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/issues/33)) ([8842592](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/commit/8842592))
+* Fix undefined in table exists log message ([#24](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/issues/24)) ([6f551de](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/commit/6f551de))
+* Missing CI packages ([#36](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/issues/36)) ([86f6242](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/commit/86f6242))
+
 # [2.1.0](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/compare/v2.0.1...v2.1.0) (2019-12-19)
 
 
