@@ -1,6 +1,6 @@
 {
   "name": "@smartthings/dynamodb-context-store",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Stores SmartApp configuration and auth tokens for use in app-initiated calls",
   "displayName": "SmartThings SmartApp DynamoDB Context Store",
   "main": "index.js",
@@ -26,21 +26,19 @@
   },
   "homepage": "https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs#readme",
   "dependencies": {
-    "aws-sdk": "^2.392.0"
+    "aws-sdk": "^2.935.0"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "~3.0.4",
-    "@semantic-release/commit-analyzer": "~6.2.0",
-    "@semantic-release/git": "~7.0.16",
-    "@semantic-release/release-notes-generator": "~7.2.1",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
     "chai": "~4.2.0",
     "codecov": "3.7.1",
     "conventional-changelog-eslint": "~3.0.1",
     "mocha": "~6.2.0",
     "nyc": "~14.1.1",
-    "semantic-git-commit-cli": "~3.2.2",
-    "semantic-release": "^17.2.3",
-    "sinon": "~7.3.2",
+    "semantic-git-commit-cli": "^3.7.0",
+    "semantic-release": "^17.4.2",
+    "sinon": "^7.5.0",
     "xo": "~0.24.0"
   },
   "nyc": {
