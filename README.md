@@ -1,10 +1,10 @@
 # Javascript DynamoDB Context Store
 
 <p align="center">
-<a href="https://circleci.com/gh/SmartThingsCommunity/dynamodb-context-store-nodejs/tree/master"><img src="https://circleci.com/gh/SmartThingsCommunity/dynamodb-context-store-nodejs.svg?style=svg"/></a>
+<a href="https://circleci.com/gh/SmartThingsCommunity/dynamodb-context-store-nodejs/tree/main"><img src="https://circleci.com/gh/SmartThingsCommunity/dynamodb-context-store-nodejs.svg?style=svg"/></a>
 <a href="https://www.npmjs.com/package/@smartthings/dynamodb-context-store"><img src="https://badgen.net/npm/v/@smartthings/dynamodb-context-store"/></a>
 <a href="https://www.npmjs.com/package/@smartthings/dynamodb-context-store"><img src="https://badgen.net/npm/license/@smartthings/dynamodb-context-store"/></a>
-<a href="https://codecov.io/gh/SmartThingsCommunity/dynamodb-context-store-nodejs"><img src="https://codecov.io/gh/SmartThingsCommunity/dynamodb-context-store-nodejs/branch/master/graph/badge.svg"/></a>
+<a href="https://codecov.io/gh/SmartThingsCommunity/dynamodb-context-store-nodejs"><img src="https://codecov.io/gh/SmartThingsCommunity/dynamodb-context-store-nodejs/branch/main/graph/badge.svg"/></a>
 <a href="https://status.badgen.net/"><img src="https://badgen.net/xo/status/@smartthings/dynamodb-context-store"/></a>
 </p>
 
@@ -29,7 +29,7 @@ npm install @smartthings/dynamodb-context-store
 
 ## Usage
 
-Create a `DynamoDBContextStore` object and pass it to the SmartApp connector to store the context in a table 
+Create a `DynamoDBContextStore` object and pass it to the SmartApp connector to store the context in a table
 named `"smartapp"` in the `us-east-1` AWS region. If the table does not exist it will be created.
 
 ```javascript
@@ -109,7 +109,7 @@ smartapp.contextStore(new DynamoDBContextStore(
     {
         table: {
             name: 'my-application',
-            hashKey: 'pk', 
+            hashKey: 'pk',
             sortKey: 'sk'
         }
     }
@@ -124,7 +124,7 @@ smartapp.contextStore(new DynamoDBContextStore(
     {
         table: {
             name: 'my-application',
-            hashKey: 'pk', 
+            hashKey: 'pk',
             sortKey: {
                 AttributeName: 'sk',
                 AttributeType: 'S',
