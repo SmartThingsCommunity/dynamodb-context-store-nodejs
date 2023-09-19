@@ -12,7 +12,7 @@ references:
 executors:
   arwen:
     docker:
-      - image: circleci/node:18
+      - image: circleci/node:14
     working_directory: ~/repo
 
 jobs:
