@@ -67,7 +67,7 @@
     "semicolon": false,
     "rules": {
       "no-useless-constructor": 1,
-      "promise/prefer-await-to-then": 1,
+      "promise/prefer-await-to-then": 0,
       "prefer-object-spread": 1,
       "no-template-curly-in-string": 0,
       "quote-props": [
