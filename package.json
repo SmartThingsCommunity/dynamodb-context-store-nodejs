@@ -14,7 +14,6 @@
   ],
   "scripts": {
     "lint": "xo",
-    "test:unit": "mocha test/unit",
     "test": "xo && nyc --reporter=text mocha test/**/*",
     "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "semantic-release": "semantic-release -e ./config/release.config.js"
@@ -26,22 +25,22 @@
   },
   "homepage": "https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs#readme",
   "dependencies": {
-    "aws-sdk": "^2.935.0"
+    "aws-sdk": "^2.1461.0"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/commit-analyzer": "^8.0.1",
-    "@semantic-release/git": "^9.0.0",
-    "@semantic-release/release-notes-generator": "^9.0.3",
-    "chai": "~4.2.0",
-    "codecov": "3.7.1",
-    "conventional-changelog-eslint": "~3.0.1",
-    "mocha": "~6.2.0",
-    "nyc": "~14.1.1",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^10.0.4",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/release-notes-generator": "^11.0.7",
+    "chai": "~4.3.8",
+    "codecov": "3.8.3",
+    "conventional-changelog-eslint": "~5.0.0",
+    "mocha": "~10.2.0",
+    "nyc": "~15.1.0",
     "semantic-git-commit-cli": "^3.7.0",
-    "semantic-release": "^17.4.2",
-    "sinon": "^7.5.0",
-    "xo": "~0.24.0"
+    "semantic-release": "^21.1.2",
+    "sinon": "^16.0.0",
+    "xo": "~0.25.0"
   },
   "nyc": {
     "watermarks": {
