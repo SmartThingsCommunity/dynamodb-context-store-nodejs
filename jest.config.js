@@ -6,7 +6,8 @@ module.exports = {
 	collectCoverageFrom: ['lib/**/*.js'],
 	coverageReporters: ['json', 'text'],
 	testEnvironment: 'node',
-	testPathIgnorePatterns: ['test/data', 'test/utilities'],
+	testPathIgnorePatterns: ['test/utilities'],
 	testMatch: ['**/test/**/*.[jt]s?(x)'],
-	setupFiles: ['<rootDir>/config/jest.setup.js']
+	setupFiles: ['<rootDir>/config/jest.setup.js'],
+	preset: '@shelf/jest-dynamodb',
 }
