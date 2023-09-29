@@ -14,9 +14,8 @@
   ],
   "scripts": {
     "lint": "xo",
-    "test": "xo && nyc --reporter=text mocha test/**/*",
-    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "semantic-release": "semantic-release -e ./config/release.config.js"
+    "test:unit": "jest",
+    "test": "jest --coverage"
   },
   "license": "Apache-2.0",
   "repository": "github.com:SmartThingsCommunity/dynamodb-context-store-nodejs.git",
@@ -28,52 +27,63 @@
     "aws-sdk": "^2.1461.0"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/commit-analyzer": "^10.0.4",
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
+    "@semantic-release/changelog": "^6.0.2",
     "@semantic-release/git": "^10.0.1",
-    "@semantic-release/release-notes-generator": "^11.0.7",
-    "chai": "~4.3.8",
-    "codecov": "3.8.3",
-    "conventional-changelog-eslint": "~5.0.0",
-    "mocha": "~10.2.0",
-    "nyc": "~15.1.0",
-    "semantic-git-commit-cli": "^3.7.0",
-    "semantic-release": "^21.1.2",
-    "sinon": "^16.0.0",
-    "xo": "~0.25.0"
-  },
-  "nyc": {
-    "watermarks": {
-      "lines": [
-        40,
-        95
-      ],
-      "functions": [
-        40,
-        95
-      ],
-      "branches": [
-        40,
-        95
-      ],
-      "statements": [
-        40,
-        95
-      ]
-    }
+    "@types/jest": "^29.4.0",
+    "conventional-changelog-conventionalcommits": "^5.0.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "jest": "^29.4.1",
+    "semantic-release": "^21.0.1",
+    "sinon": "^15.0.1",
+    "xo": "~0.56.0"
   },
   "xo": {
     "space": false,
     "semicolon": false,
     "rules": {
-      "no-useless-constructor": 1,
-      "promise/prefer-await-to-then": 0,
-      "prefer-object-spread": 1,
-      "no-template-curly-in-string": 0,
+      "no-useless-constructor": "warn",
+      "prefer-object-spread": "warn",
+      "no-template-curly-in-string": "off",
       "quote-props": [
         "error",
         "consistent"
-      ]
-    }
+      ],
+      "import/extensions": "off",
+      "object-curly-spacing": "off",
+      "capitalized-comments": "off",
+      "unicorn/prevent-abbreviations": "off",
+      "unicorn/empty-brace-spaces": "off",
+      "unicorn/no-this-assignment": "off",
+      "unicorn/prefer-ternary": "off",
+      "unicorn/no-array-for-each": "warn",
+      "@typescript-eslint/member-delimiter-style": "off",
+      "@typescript-eslint/comma-dangle": "off",
+      "@typescript-eslint/consistent-indexed-object-style": "off",
+      "@typescript-eslint/object-curly-spacing": "off",
+      "arrow-body-style": "off",
+      "comma-dangle": "off",
+      "complexity": "off",
+      "import/order": "off",
+      "max-depth": "off",
+      "object-shorthand": "off",
+      "operator-linebreak": "off",
+      "n/file-extension-in-import": "off",
+      "n/prefer-global/process": "off",
+      "@typescript-eslint/consistent-type-definitions": "off",
+      "@typescript-eslint/consistent-type-imports": "off",
+      "@typescript-eslint/naming-convention": "off",
+      "@typescript-eslint/semi": "off",
+      "unicorn/prefer-logical-operator-over-ternary": "off",
+      "unicorn/prefer-module": "off",
+      "unicorn/prefer-node-protocol": "off",
+      "unicorn/prefer-spread": "off",
+      "unicorn/switch-case-braces": "off"
+    },
+    "overrides": [],
+    "envs": [
+      "jest"
+    ]
   }
 }
