@@ -1,6 +1,5 @@
 /* eslint no-undef: "off" */
 const AWS = require('aws-sdk')
-const {expect} = require('chai')
 const DynamoDBContextStore = require('../lib/dynamodb-context-store')
 
 describe('context-store-spec', () => {
@@ -15,15 +14,15 @@ describe('context-store-spec', () => {
 			prefix: 'ctx:'
 		}
 		store = new DynamoDBContextStore({autoCreate: false})
-		expect(store.table).to.include(tableDefaults)
+		expect(store.table).toEqual(tableDefaults)
 	})
 
 	it('should allow overriding DynamoDB Client', () => {
 		const testDynamoClient = new AWS.DynamoDB()
 		store = new DynamoDBContextStore({client: testDynamoClient, autoCreate: false})
-		expect(store.client).to.deep.equal(testDynamoClient)
+		expect(store.client).toEqual(testDynamoClient)
 
 		store = new DynamoDBContextStore({autoCreate: false})
-		expect(store.client).to.not.deep.equal(testDynamoClient)
+		expect(store.client).not.toEqual(testDynamoClient)
 	})
 })
