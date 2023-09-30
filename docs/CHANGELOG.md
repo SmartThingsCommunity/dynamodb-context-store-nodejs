@@ -1,3 +1,12 @@
+## [2.1.2](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/compare/v2.1.1...v2.1.2) (2023-09-30)
+
+
+### Bug Fixes
+
+* deploy of updated AWS V2 SDK version ([#61](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/issues/61)) ([4831092](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/commit/48310925459c62430169ce9de7066319b2c5e8cc))
+* npm release update ([#63](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/issues/63)) ([b4fd4dd](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/commit/b4fd4dd2d14b9784c0d3371b762e3289446be237))
+* updated packages and switched to jest ([#62](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/issues/62)) ([55ebcd5](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/commit/55ebcd56af70431a823ca7a54c04276c7b146da8))
+
 ## [2.1.1](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/compare/v2.1.0...v2.1.1) (2021-06-28)
 
 
