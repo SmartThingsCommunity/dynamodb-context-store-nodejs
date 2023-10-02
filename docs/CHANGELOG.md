@@ -1,3 +1,10 @@
+## [2.2.0](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/compare/v2.1.2...v2.2.0) (2023-10-02)
+
+
+### Features
+
+* change to AWS SDK V3 and add get/set item to context ([#64](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/issues/64)) ([00e1a8b](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/commit/00e1a8b5730ceea6eef022723642fcd2dfd827fe))
+
 ## [2.1.2](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/compare/v2.1.1...v2.1.2) (2023-09-30)
 
 
