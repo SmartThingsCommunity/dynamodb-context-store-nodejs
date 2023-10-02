@@ -10,7 +10,6 @@ The context stored by this module consists of the following data elements:
 * **authToken**: the access token used in calling the API
 * **refreshToken**: the refresh token used in generating a new access token when one expires
 * **config**: the current installed app instance configuration, i.e. selected devices, options, etc.
-* **state**: name-value storage for the installed app instance
 
 **_Note: Version 3.X.X is a breaking change to version 2.X.X as far as configuring the context store is
 concerned, but either one can be used with any version of the SmartThings SDK. The new state storage
