@@ -1,3 +1,16 @@
+## [3.0.0](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/compare/v2.2.0...v3.0.0) (2023-10-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* The initialization of the context store is not backward compatible since
+the AWS V3 client is initialized differently than the V2 client. Otherwise, the operation of
+the context store is backward compatible with the 2.X version
+
+### Features
+
+* change to AWS SDK V3 and release ([#65](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/issues/65)) ([53f3959](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/commit/53f3959070b6fd77cf0170d8e7c69b4e0235c47b))
+
 ## [2.2.0](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/compare/v2.1.2...v2.2.0) (2023-10-02)
 
 
