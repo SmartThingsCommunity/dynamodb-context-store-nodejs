@@ -10,6 +10,8 @@ The context stored by this module consists of the following data elements:
 * **authToken**: the access token used in calling the API
 * **refreshToken**: the refresh token used in generating a new access token when one expires
 * **config**: the current installed app instance configuration, i.e. selected devices, options, etc.
+* **state**: name-value storage for the installed app instance. This is useful for storing information
+  between invocations of the SmartApp. It's not retried by the `get` method, but rather by `getItem`.
 
 **_Note: Version 3.X.X is a breaking change to version 2.X.X as far as configuring the context store is
 concerned, but either one can be used with any version of the SmartThings SDK. The new state storage
@@ -142,3 +144,9 @@ smartapp.contextStore(new DynamoDBContextStore(
     }
 ))
 ```
+
+## State Storage
+
+The context store can also be used to store state information for the installed app instance. This is
+particularly useful for SmartApps that are not stateless, i.e. they need to remember information between
+invocations. The state storage functions are only available with version 5.X.X or later of the SDK.
