@@ -6,12 +6,15 @@ The context stored by this module consists of the following data elements:
 
 * **installedAppId**: the UUID of the installed app instance. This is the primary key of the table.
 * **locationId**: the UUID of the location in which the app is installed
+* **locale**: the locale client used to install the app
 * **authToken**: the access token used in calling the API
 * **refreshToken**: the refresh token used in generating a new access token when one expires
 * **config**: the current installed app instance configuration, i.e. selected devices, options, etc.
+* **state**: name-value storage for the installed app instance
 
-_Note: Version 2.X.X is a breaking change to version 1.X.X as far as configuring the context store is
-concerned, but either one can be used with any version of the SmartThings SDK._
+**_Note: Version 3.X.X is a breaking change to version 2.X.X as far as configuring the context store is
+concerned, but either one can be used with any version of the SmartThings SDK. The new state storage
+functions are only available with version 5.X.X or later of the SDK._**
 
 ## Installation
 
@@ -34,14 +37,17 @@ The more extensive set of options are shown in this example:
 smartapp.contextStore(new DynamoDBContextStore(
     {
         table: {
-            name: 'custom-table',   // defaults to 'smartapp'
-            hashKey: 'key1',        // defaults to 'id'
-            prefix: 'context',      // defaults to 'ctx'
-            readCapacityUnits: 10,  // defaults to 5, applies to automatic creation only
-            writeCapacityUnits: 10  // defaults to 5, applies to automatic creation only
+            name: 'custom-table',       // defaults to 'smartapp'
+            hashKey: 'key1',            // defaults to 'id'
+            prefix: 'context',          // defaults to 'ctx'
+            billingMode: 'PROVISIONED', // defaults to 'PAY_PER_REQUEST'
+            readCapacityUnits: 10,      // defaults to 1, applies to automatic creation only
+            writeCapacityUnits: 10      // defaults to 1, applies to automatic creation only
         },
-        AWSRegion: 'us-east-2',     // defaults to 'us-east-1'
-        autoCreate: true            // defaults to true
+        aws: {
+			region: 'us-east-2',        // defaults to 'us-east-1'
+		},
+        autoCreate: true                // defaults to true
     }
 ))
 ```
@@ -51,6 +57,7 @@ The **table** configuration options are:
 * **name** -- The name of the DynamoDB table storing the context
 * **hashKey** -- The name of the partition key of the table
 * **prefix** -- A string pre-pended to the installed app ID and used as the partition key for the entry
+* **billingMode** -- The billing mode of the table. Either `PAY_PER_REQUEST` or `PROVISIONED`
 * **readCapacityUnits** -- Number of consistent reads per second. Used only when table is created
 * **writeCapacityUnits** -- Number of writes per second. Used only when table is created
 * **sortKey** -- Optional sort key definition (see below for more details)
@@ -66,25 +73,18 @@ Note that only one of the AWS options should be specified or behavior will be in
 
 ### AWS Configuration Options
 
-By default, the AWS credentials are picked up from the environment. If you prefer you can read the credentials
-from a file with this configuration:
+By default, the AWS credentials are picked up from the environment. If you prefer you can 
+explicitly set the credentials in this way:
 
 ```javascript
 smartapp.contextStore(new DynamoDBContextStore(
     {
-        AWSConfigPath: './path/to/file.json'
-    }
-))
-```
-
-You can also explicitly set the credentials in this way:
-
-```javascript
-smartapp.contextStore(new DynamoDBContextStore(
-    {
-        AWSConfigJSON: {
-            accessKeyId: '<YOUR_ACCESS_KEY_ID>',
-            secretAccessKey: '<YOUR_SECRET_ACCESS_KEY>',
+        aws: {
+			endpoint: 'http://localhost:8000',
+            credentials: {
+				accessKeyId: '<YOUR_ACCESS_KEY_ID>',
+				secretAccessKey: '<YOUR_SECRET_ACCESS_KEY>',
+            },
             region: 'us-east-2'
         }
     }
@@ -123,6 +123,22 @@ smartapp.contextStore(new DynamoDBContextStore(
                 AttributeValue: 'context',
                 KeyType: 'RANGE'
             }
+        }
+    }
+))
+```
+
+### Partition Key Prefix
+
+The default behavior is to construction the partition key of the context records from the installedAppId with
+the prefix `pre:`. If you want to override this prefix you can do so by specifying the `prefix` option:
+
+```javascript
+smartapp.contextStore(new DynamoDBContextStore(
+    {
+        table: {
+            name: 'my-application',
+            prefix: 'context$'
         }
     }
 ))
