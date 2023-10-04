@@ -24,7 +24,6 @@ describe('Automatic table creation', () => {
 			authToken: 'authToken',
 			refreshToken: 'refreshToken',
 			config: {settings: 'something'},
-			state: {isaState: 'some state'}
 		})
 
 		const context = await contextStore.get(installedAppId)
@@ -34,7 +33,6 @@ describe('Automatic table creation', () => {
 		expect(context.refreshToken).toEqual('refreshToken')
 		expect(context.locale).toEqual('ko-KR')
 		expect(context.config).toEqual({settings: 'something'})
-		expect(context.state).toEqual({isaState: 'some state'})
 
 		await contextStore.delete(installedAppId)
 	})
@@ -63,7 +61,6 @@ describe('Automatic table creation', () => {
 			authToken: 'authToken',
 			refreshToken: 'refreshToken',
 			config: {settings: 'something'},
-			state: {isaState: 'some state'}
 		})
 
 		const context = await contextStore.get(installedAppId)
@@ -73,7 +70,6 @@ describe('Automatic table creation', () => {
 		expect(context.refreshToken).toEqual('refreshToken')
 		expect(context.locale).toEqual('en-US')
 		expect(context.config).toEqual({settings: 'something'})
-		expect(context.state).toEqual({isaState: 'some state'})
 
 		await contextStore.delete(installedAppId)
 	})
