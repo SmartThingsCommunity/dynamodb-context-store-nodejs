@@ -1,3 +1,10 @@
+## [3.1.0](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/compare/v3.0.0...v3.1.0) (2023-10-04)
+
+
+### Features
+
+* added support for accessing context state name-value store ([#66](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/issues/66)) ([8c193b4](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/commit/8c193b44ad3b4729ce96c4ed183cbee3cc844dac))
+
 ## [3.0.0](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/compare/v2.2.0...v3.0.0) (2023-10-02)
 
 
